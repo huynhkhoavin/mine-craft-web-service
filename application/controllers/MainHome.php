@@ -40,4 +40,13 @@ class MainHome extends CI_Controller{
             print(json_encode($result->result_array()));
             $this->db->close();
     }
+    public function search_items(){
+        $this->load->database();
+        $search_keyword = $this->input->post('search_keyword');
+        $limit_count = $this->input->post('limit_count');
+        $query = "CALL search_items(?,?)";
+        $result = $this->db->query($query, array('p_search_keyword' => $search_keyword,'p_limit_count' => $limit_count));
+            print(json_encode($result->result_array()));
+            $this->db->close();
+    }
 }
