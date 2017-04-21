@@ -70,11 +70,11 @@ CREATE TABLE `item` (
   KEY `type_id` (`type_id`),
   CONSTRAINT `item_ibfk_2` FOREIGN KEY (`category_id`) REFERENCES `category` (`category_id`),
   CONSTRAINT `item_ibfk_3` FOREIGN KEY (`type_id`) REFERENCES `item_type` (`type_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 /*Data for the table `item` */
 
-insert  into `item`(`item_id`,`type_id`,`category_id`,`item_name`,`file_url`,`image_url`,`thumb_url`,`author_name`,`version`,`size`,`description`,`short_description`,`hot_priority`,`download_count`,`is_verify`,`create_time`) values (1,1,2,'Mine-Trucks Addon','http://azminecraftskins.com/mcpe/mcpemods/files/MineTrucks.addon','https://dl.dropboxusercontent.com/u/26776365/mcpemods/thumbs/MineTrucks.jpg','https://dl.dropboxusercontent.com/u/26776365/mcpemods/thumbs/MineTrucks.jpg','MattH44','1.0.6',NULL,'Recently an evil villager decided to overthrow your kingdom and proclaim himself as king. This obviously comes as bitter news and its up to you to take back what was once yours and reinstate yourself as king. Its a fun map where you need to search for clues to find the tools youll need to save the kingdom.\\\\nStoryline\\\\nYouve long ruled your kingdom but recently someone overthrew you! He is an evil man and your people is now being ruled by a complete maniac. You need to find a way to destroy him and take back your lost kingdom. To do this youll need a couple of different tools','Recently an evil villager decided to overthrow your kingdom and proclaim himself as king. This obviously comes as bitter news and its up to you to take back what was once yours and reinstate yourself as king. Its a fun map where you need to search for clues to find the tools youll need to save the kingdom.',4,1005,0,'2017-04-20 13:27:33'),(2,2,1,'Pocket Creatures Mod','http://azminecraftskins.com/mcpe/mcpemods/files/PocketCreaturesMod.zip','https://dl.dropboxusercontent.com/u/26776365/mcpemods/thumbs/PocketCreaturesMod.jpg','https://dl.dropboxusercontent.com/u/26776365/mcpemods/thumbs/PocketCreaturesMod.jpg','BlockMaster_203','1.0.6',NULL,'Thorpe Park is a theme park in England which now has been recreated in Minecraft Pocket Edition. There are more than 40 different attractions (and that includes everything from roller coasters to water rides). However, it should be noticed that its not a 1:1 scale recreation and some attractions have been moved or changed to make everything fit nicely together.','Thorpe Park is a theme park in England which now has been recreated in Minecraft Pocket Edition.',3,1025,0,'2017-04-20 13:29:44');
+insert  into `item`(`item_id`,`type_id`,`category_id`,`item_name`,`file_url`,`image_url`,`thumb_url`,`author_name`,`version`,`size`,`description`,`short_description`,`hot_priority`,`download_count`,`is_verify`,`create_time`) values (1,1,2,'Mine-Trucks Addon','http://azminecraftskins.com/mcpe/mcpemods/files/MineTrucks.addon','https://dl.dropboxusercontent.com/u/26776365/mcpemods/thumbs/MineTrucks.jpg','https://dl.dropboxusercontent.com/u/26776365/mcpemods/thumbs/MineTrucks.jpg','MattH44','1.0.6',NULL,'Recently an evil villager decided to overthrow your kingdom and proclaim himself as king. This obviously comes as bitter news and its up to you to take back what was once yours and reinstate yourself as king. Its a fun map where you need to search for clues to find the tools youll need to save the kingdom.\\\\nStoryline\\\\nYouve long ruled your kingdom but recently someone overthrew you! He is an evil man and your people is now being ruled by a complete maniac. You need to find a way to destroy him and take back your lost kingdom. To do this youll need a couple of different tools','Recently an evil villager decided to overthrow your kingdom and proclaim himself as king. This obviously comes as bitter news and its up to you to take back what was once yours and reinstate yourself as king. Its a fun map where you need to search for clues to find the tools youll need to save the kingdom.',4,1005,0,'2017-04-20 13:27:33'),(2,2,1,'Pocket Creatures Mod','http://azminecraftskins.com/mcpe/mcpemods/files/PocketCreaturesMod.zip','https://dl.dropboxusercontent.com/u/26776365/mcpemods/thumbs/PocketCreaturesMod.jpg','https://dl.dropboxusercontent.com/u/26776365/mcpemods/thumbs/PocketCreaturesMod.jpg','BlockMaster_203','1.0.6',NULL,'Thorpe Park is a theme park in England which now has been recreated in Minecraft Pocket Edition. There are more than 40 different attractions (and that includes everything from roller coasters to water rides). However, it should be noticed that its not a 1:1 scale recreation and some attractions have been moved or changed to make everything fit nicely together.','Thorpe Park is a theme park in England which now has been recreated in Minecraft Pocket Edition.',3,1025,0,'2017-04-20 13:29:44'),(3,3,1,'Castle Adventure','http://azminecraftskins.com/mcpe/mcpemaps/files/adventure/CastleAdventureV2.zip','https://dl.dropboxusercontent.com/u/26776365/mcpemaps/images/adventure/CastleAdventureV2.jpg','https://dl.dropboxusercontent.com/u/26776365/mcpemaps/thumbs/adventure/CastleAdventureV2.jpg','MattH44','1.0.6',NULL,'Recently an evil villager decided to overthrow your kingdom and proclaim himself as king. This obviously comes as bitter news and its up to you to take back what was once yours and reinstate yourself as king. Its a fun map where you need to search for clues to find the tools youll need to save the kingdom.\\\\nStoryline\\\\nYouve long ruled your kingdom but recently someone overthrew you! He is an evil man and your people is now being ruled by a complete maniac. You need to find a way to destroy him and take back your lost kingdom. To do this youll need a couple of different tools','Recently an evil villager decided to overthrow your kingdom and proclaim himself as king. This obviously comes as bitter news and its up to you to take back what was once yours and reinstate yourself as king. Its a fun map where you need to search for clues to find the tools youll need to save the kingdom.',4,1005,0,'2017-04-21 12:02:03');
 
 /*Table structure for table `item_comment` */
 
@@ -82,17 +82,17 @@ DROP TABLE IF EXISTS `item_comment`;
 
 CREATE TABLE `item_comment` (
   `comment_id` int(11) NOT NULL AUTO_INCREMENT,
-  `item_id` int(11) NOT NULL,
+  `item_id` varchar(100) NOT NULL,
   `user_id` varchar(50) NOT NULL,
   `comment_message` text NOT NULL,
   `create_time` datetime NOT NULL,
   `like_count` int(11) NOT NULL,
   PRIMARY KEY (`comment_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
 
 /*Data for the table `item_comment` */
 
-insert  into `item_comment`(`comment_id`,`item_id`,`user_id`,`comment_message`,`create_time`,`like_count`) values (2,1,'1','gasgsafasf','2017-04-19 13:43:37',100),(3,1,'1','Greate Job!','2017-04-21 09:28:29',34);
+insert  into `item_comment`(`comment_id`,`item_id`,`user_id`,`comment_message`,`create_time`,`like_count`) values (2,'1','1','gasgsafasf','2017-04-19 13:43:37',100),(3,'1','1','Greate Job!','2017-04-21 09:28:29',34),(4,'1','1','hehela','2017-04-21 10:42:31',0),(5,'1','1','hehela','2017-04-21 10:59:35',0),(6,'1','1','aksdhasnd.asdkjasd','2017-04-21 10:59:56',0),(7,'1','1','aksdhasnd.asdkjasd','2017-04-21 11:05:17',0),(8,'1','1','aksdhasnd.asdkjasd','2017-04-21 13:06:11',0),(9,'1','1','aksdhasnd.asdkjasd','2017-04-21 13:06:13',0),(10,'1','1','sdfdsfdsfsdfds','2017-04-21 13:23:23',0),(11,'1','1','Hello','2017-04-21 13:25:36',0),(12,'1','1','´dasdas','2017-04-21 13:27:35',0),(13,'1','1','´dasd´dasd','2017-04-21 13:27:44',0),(14,'1','1','´dasdasdasdasdasd','2017-04-21 13:27:48',0),(15,'1','1','sdfdsfdsfdsfdsf','2017-04-21 13:28:56',0);
 
 /*Table structure for table `item_type` */
 
@@ -107,6 +107,19 @@ CREATE TABLE `item_type` (
 /*Data for the table `item_type` */
 
 insert  into `item_type`(`type_id`,`type_name`) values (1,'AddOn'),(2,'Mod'),(3,'Map'),(4,'Skin'),(5,'Texture'),(6,'Seed');
+
+/*Table structure for table `like` */
+
+DROP TABLE IF EXISTS `like`;
+
+CREATE TABLE `like` (
+  `like_id` int(11) NOT NULL AUTO_INCREMENT,
+  `comment_id` int(11) NOT NULL,
+  `user_id` varchar(50) NOT NULL,
+  PRIMARY KEY (`like_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `like` */
 
 /*Table structure for table `news` */
 
@@ -139,6 +152,36 @@ CREATE TABLE `news_comment` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `news_comment` */
+
+/* Procedure structure for procedure `create_item_comment` */
+
+/*!50003 DROP PROCEDURE IF EXISTS  `create_item_comment` */;
+
+DELIMITER $$
+
+/*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `create_item_comment`(
+	in p_item_id int(11),
+	IN p_user_id VARCHAR(50),
+	in p_message TEXT
+    )
+BEGIN
+	INSERT INTO `mine_craft_mods`.`item_comment`
+            (
+             `item_id`,
+             `user_id`,
+             `comment_message`,
+             `create_time`,
+             `like_count`)
+VALUES (
+        p_item_id,
+        p_user_id,
+        p_message,
+        NOW(),
+        0);
+        
+        SELECT '200' as RESULT_CODE;
+    END */$$
+DELIMITER ;
 
 /* Procedure structure for procedure `get_all_categories` */
 
@@ -214,9 +257,9 @@ DELIMITER $$
 )
 BEGIN		
 	IF (p_limit_amount > 0) THEN 
-	SELECT * FROM mine_craft_mods.`item_comment` where `item_id`= p_item_id limit p_limit_amount;
+	SELECT `item_comment`.`comment_id`,`item_comment`.`item_id`,`item_comment`.`comment_message`,`item_comment`.`like_count`,TIMEDIFF(NOW(),`item_comment`.`create_time`) as duration FROM mine_craft_mods.`item_comment` where `item_id`= p_item_id limit p_limit_amount;
 	ELSE 
-	SELECT * FROM mine_craft_mods.`item_comment` WHERE `item_id`= p_item_id;
+	SELECT `item_comment`.`comment_id`,`item_comment`.`item_id`,`item_comment`.`comment_message`,`item_comment`.`like_count`,TIMEDIFF(NOW(),`item_comment`.`create_time`) AS duration  FROM mine_craft_mods.`item_comment` WHERE `item_id`= p_item_id;
 	end if;
     END */$$
 DELIMITER ;

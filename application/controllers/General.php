@@ -8,21 +8,21 @@ class General extends CI_Controller{
           $this->load->database();
             $query = "CALL get_all_items()";
             $result = $this->db->query($query);
-            echo json_encode(array('data'=>$result->result_array()));
+            print(json_encode($result->result_array()));
             $this->db->close();
     }
     public function get_all_categories(){
         $this->load->database();
             $query = "CALL get_all_categories()";
             $result = $this->db->query($query);
-            echo json_encode(array('data'=>$result->result_array()));
+            print(json_encode($result->result_array()));
             $this->db->close();
     }
     public function get_all_item_type(){
         $this->load->database();
             $query = "CALL get_all_item_type()";
             $result = $this->db->query($query);
-            echo json_encode(array('data'=>$result->result_array()));
+            print(json_encode($result->result_array()));
             $this->db->close();
     }
 }
