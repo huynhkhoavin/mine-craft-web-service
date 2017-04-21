@@ -7,7 +7,7 @@ class AdminHome extends CI_Controller {
 	{
                 $this->load->view('template/navigation');
                 $this->load->view('template/header');
-		$this->load->view('admin/verify_items');
+		$this->load->view('admin/upload_items');
                 $this->load->view('template/footer');
 	}
         public function test(){

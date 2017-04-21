@@ -25,4 +25,13 @@ class General extends CI_Controller{
             print(json_encode($result->result_array()));
             $this->db->close();
     }
+    public function get_item_by_type(){
+        $this->load->database();
+        $type_id = $this->input->post('type_id');
+        $limit_amount = $this->input->post('limit_amount');
+        $query = "CALL get_item_by_type(?,?)";
+        $result = $this->db->query($query, array('p_item_type_id'=>$type_id,'p_limit_amount' => $limit_amount));
+        print(json_encode($result->result_array()));
+        $this->db->close();
+    }
 }

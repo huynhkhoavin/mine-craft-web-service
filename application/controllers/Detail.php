@@ -23,4 +23,13 @@ class Detail extends CI_Controller{
             print(json_encode($result->result_array()));
             $this->db->close();
     }
+    public function like_comment(){
+        $this->load->database();
+        $user_id = $this->input->post('user_id');
+        $comment_id = $this->input->post('comment_id');
+        $query = "CALL like_comment(?,?)";
+        $result = $this->db->query($query, array('p_user_id' => $user_id,'p_comment_id'=>$comment_id));
+            print(json_encode($result->result_array()));
+            $this->db->close();
+    }
 }
