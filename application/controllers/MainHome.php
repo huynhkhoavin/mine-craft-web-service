@@ -59,4 +59,13 @@ class MainHome extends CI_Controller{
         $result = $this->db->query("SELECT * FROM item");
         $this->db->close();
     }
+    public function get_all_items_by_category(){
+        $this->load->database();
+        $category_id = $this->input->post('category_id');
+        $limit_amount = $this->input->post('limit_amount');
+        $query = "CALL get_all_items_by_category(?,?)";
+        $result = $this->db->query($query, array('p_category_id'=>$category_id,'p_limit_amount' => $limit_amount));
+            print(json_encode($result->result_array()));
+            $this->db->close();
+    }
 }
