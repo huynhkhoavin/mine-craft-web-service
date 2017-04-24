@@ -34,4 +34,12 @@ class General extends CI_Controller{
         print(json_encode($result->result_array()));
         $this->db->close();
     }
+    public function get_all_newest_news(){
+        $this->load->database();
+        $limit_amount = $this->input->post('limit_amount');
+        $query = "CALL get_all_news_items(?)";
+        $result = $this->db->query($query, array('p_limit_amount' => $limit_amount));
+        print(json_encode($result->result_array()));
+        $this->db->close();
+    }
 }
