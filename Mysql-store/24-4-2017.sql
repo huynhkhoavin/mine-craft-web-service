@@ -210,11 +210,11 @@ CREATE TABLE `upload_item` (
   `is_verify` int(11) DEFAULT NULL,
   `create_time` datetime DEFAULT NULL,
   PRIMARY KEY (`item_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 /*Data for the table `upload_item` */
 
-insert  into `upload_item`(`item_id`,`type_id`,`category_id`,`item_name`,`file_url`,`image_url`,`thumb_url`,`author_name`,`version`,`size`,`description`,`short_description`,`hot_priority`,`download_count`,`video_code`,`is_verify`,`create_time`) values (1,2,3,'0','C:\\Users\\Dev02\\Downloads\\unikey42RC4-140823-win64.zip','C:\\Users\\Dev02\\Pictures\\Camera Roll\\img.PNG',NULL,'Khoa Vin','1.0.6','64x64','He he','Hahaha',1,0,'23ffd3',0,'2017-04-24 15:47:30');
+insert  into `upload_item`(`item_id`,`type_id`,`category_id`,`item_name`,`file_url`,`image_url`,`thumb_url`,`author_name`,`version`,`size`,`description`,`short_description`,`hot_priority`,`download_count`,`video_code`,`is_verify`,`create_time`) values (1,2,3,'0','C:\\Users\\Dev02\\Downloads\\unikey42RC4-140823-win64.zip','C:\\Users\\Dev02\\Pictures\\Camera Roll\\img.PNG',NULL,'Khoa Vin','1.0.6','64x64','He he','Hahaha',1,0,'23ffd3',0,'2017-04-24 15:47:30'),(2,1,1,'0','C:\\Users\\Dev02\\Downloads\\smartgit-win32-setup-jre-17_0_2.zip','C:\\Users\\Dev02\\Pictures\\Camera Roll\\img.PNG',NULL,'KhoaVin','1.5.4','22','dsasdasd','qww',12,0,'12313dfd',0,'2017-04-24 17:27:39'),(3,1,1,'0','','',NULL,'','','','','',0,0,'',0,'2017-04-24 17:31:18'),(4,1,1,'0','','',NULL,'','','','','',0,0,'',0,'2017-04-24 17:34:08'),(5,1,1,'qweqewqwads','','',NULL,'','','','','',0,0,'',0,'2017-04-24 17:37:08');
 
 /* Procedure structure for procedure `add_new_upload_item` */
 
@@ -225,7 +225,7 @@ DELIMITER $$
 /*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `add_new_upload_item`(
 	    in p_type_id int(11),
 		in p_category_id int(11),
-		in p_item_name int(11),
+		in p_item_name VARCHAR(50),
 		in p_file_url text,
 		in p_image_url text,
 		in p_thumb_url text,
@@ -458,6 +458,18 @@ BEGIN
 	else
 	SELECT * FROM news ORDER BY news.`news_create_at` DESC;
 	end if;
+    END */$$
+DELIMITER ;
+
+/* Procedure structure for procedure `get_all_upload_item` */
+
+/*!50003 DROP PROCEDURE IF EXISTS  `get_all_upload_item` */;
+
+DELIMITER $$
+
+/*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `get_all_upload_item`()
+BEGIN
+	select * from upload_item;
     END */$$
 DELIMITER ;
 
