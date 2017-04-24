@@ -16,6 +16,21 @@ CREATE DATABASE /*!32312 IF NOT EXISTS*/`mine_craft_mods` /*!40100 DEFAULT CHARA
 
 USE `mine_craft_mods`;
 
+/*Table structure for table `account` */
+
+DROP TABLE IF EXISTS `account`;
+
+CREATE TABLE `account` (
+  `account_id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(50) NOT NULL,
+  `password` text NOT NULL,
+  PRIMARY KEY (`account_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+/*Data for the table `account` */
+
+insert  into `account`(`account_id`,`username`,`password`) values (1,'khoavin','af3033b84abc0a74b0a4f1527104e391');
+
 /*Table structure for table `category` */
 
 DROP TABLE IF EXISTS `category`;
@@ -41,7 +56,7 @@ CREATE TABLE `error_code` (
 
 /*Data for the table `error_code` */
 
-insert  into `error_code`(`response_code`,`meaning`) values ('200','Success!'),('201','Duplicate Insert Row'),('202','Unlike Success!'),('203','Like Success!');
+insert  into `error_code`(`response_code`,`meaning`) values ('200','Success!'),('201','Duplicate Insert Row'),('202','Unlike Success!'),('203','Like Success!'),('204','\r\nLogin success!'),('205','Login Failed!');
 
 /*Table structure for table `html_content` */
 
@@ -145,12 +160,13 @@ CREATE TABLE `news` (
   `news_title` text NOT NULL,
   `news_thumb_url` text NOT NULL,
   `news_content_id` int(11) NOT NULL,
+  `news_create_at` datetime DEFAULT NULL,
   PRIMARY KEY (`news_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 /*Data for the table `news` */
 
-insert  into `news`(`news_id`,`news_title`,`news_thumb_url`,`news_content_id`) values (1,'My Title','http://www.gettyimages.in/gi-resources/images/Homepage/Hero/US/MAR2016/prestige-587705839_full.jpg',1),(2,'Haha','http://beebom.com/wp-content/uploads/2016/01/Reverse-Image-Search-Engines-Apps-And-Its-Uses-2016.jpg',1),(3,'Keke','http://1.bp.blogspot.com/-SzGp9N3s138/UzBFiIOyonI/AAAAAAAAKkE/YzOOFiW61DI/s1600/Beautiful+Indian+Girls+Wallpapers+for+Desktop+Image+12.jpg',1);
+insert  into `news`(`news_id`,`news_title`,`news_thumb_url`,`news_content_id`,`news_create_at`) values (1,'My Title','http://www.gettyimages.in/gi-resources/images/Homepage/Hero/US/MAR2016/prestige-587705839_full.jpg',1,'2017-04-23 10:28:57'),(2,'Haha','http://beebom.com/wp-content/uploads/2016/01/Reverse-Image-Search-Engines-Apps-And-Its-Uses-2016.jpg',1,'2017-04-24 10:29:01'),(3,'Keke','http://1.bp.blogspot.com/-SzGp9N3s138/UzBFiIOyonI/AAAAAAAAKkE/YzOOFiW61DI/s1600/Beautiful+Indian+Girls+Wallpapers+for+Desktop+Image+12.jpg',1,'2017-04-21 10:29:04');
 
 /*Table structure for table `news_comment` */
 
@@ -164,9 +180,116 @@ CREATE TABLE `news_comment` (
   `create_time` datetime DEFAULT NULL,
   `like_count` int(11) DEFAULT NULL,
   PRIMARY KEY (`comment_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 
 /*Data for the table `news_comment` */
+
+insert  into `news_comment`(`comment_id`,`news_id`,`user_id`,`comment_message`,`create_time`,`like_count`) values (1,0,1,'hahahassiss','2017-04-24 13:28:34',NULL),(2,0,1,'hahahassiss','2017-04-24 13:28:40',NULL),(3,1,1,'hahahassiss','2017-04-24 13:32:41',NULL),(4,1,1,'hahahassiss','2017-04-24 13:39:32',NULL),(5,1,1,'hahahassiss','2017-04-24 13:39:34',NULL),(6,1,1,'hahahassiss','2017-04-24 13:39:34',NULL),(7,1,1,'hahahassiss','2017-04-24 13:39:34',NULL),(8,1,1,'hahahassiss','2017-04-24 13:39:35',NULL),(9,3,1,'Hello','2017-04-24 13:48:08',NULL);
+
+/*Table structure for table `upload_item` */
+
+DROP TABLE IF EXISTS `upload_item`;
+
+CREATE TABLE `upload_item` (
+  `item_id` int(11) NOT NULL AUTO_INCREMENT,
+  `type_id` int(11) NOT NULL,
+  `category_id` int(11) NOT NULL,
+  `item_name` varchar(50) NOT NULL,
+  `file_url` text,
+  `image_url` text,
+  `thumb_url` text,
+  `author_name` text,
+  `version` varchar(30) DEFAULT NULL,
+  `size` varchar(20) DEFAULT NULL,
+  `description` text,
+  `short_description` text,
+  `hot_priority` int(11) DEFAULT NULL,
+  `download_count` int(11) DEFAULT NULL,
+  `is_verify` int(11) DEFAULT NULL,
+  `create_time` datetime DEFAULT NULL,
+  PRIMARY KEY (`item_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `upload_item` */
+
+/* Procedure structure for procedure `add_new_upload_item` */
+
+/*!50003 DROP PROCEDURE IF EXISTS  `add_new_upload_item` */;
+
+DELIMITER $$
+
+/*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `add_new_upload_item`(
+	    in p_type_id int(11),
+		in p_category_id int(11),
+		in p_item_name int(11),
+		in p_file_url text,
+		in p_image_url text,
+		in p_thumb_url text,
+		in p_author_name text,
+		in p_version varchar(30),
+		in p_size varchar(20),
+		in p_description text,
+		in p_short_description text,
+		in p_hot_priority int(11),
+		in p_download_count int(11),
+		in p_is_verify int(11)
+    )
+BEGIN
+	INSERT INTO `mine_craft_mods`.`upload_item`
+            (`type_id`,
+             `category_id`,
+             `item_name`,
+             `file_url`,
+             `image_url`,
+             `thumb_url`,
+             `author_name`,
+             `version`,
+             `size`,
+             `description`,
+             `short_description`,
+             `hot_priority`,
+             `download_count`,
+             `is_verify`,
+             `create_time`)
+VALUES (p_type_id,
+        p_category_id,
+        p_item_name,
+        p_file_url,
+        p_image_url,
+        p_thumb_url,
+        p_author_name,
+        p_version,
+        p_size,
+        p_description,
+        p_short_description,
+        p_hot_priority,
+        p_download_count,
+        p_is_verify,
+        NOW());
+        select * from error_code where error_code.`response_code` = 200;
+    END */$$
+DELIMITER ;
+
+/* Procedure structure for procedure `admin_authentication` */
+
+/*!50003 DROP PROCEDURE IF EXISTS  `admin_authentication` */;
+
+DELIMITER $$
+
+/*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `admin_authentication`(
+		IN p_username varchar(50),
+		in p_password varchar(50)
+    )
+BEGIN
+	
+	select count(*) from account where account.`username` = p_username and account.`password` = p_password into @check_login;
+	if(@check_login = 1) then
+		select * from error_code where response_code = 204;
+	else
+		select * from error_code where response_code = 205;
+	end if;
+    END */$$
+DELIMITER ;
 
 /* Procedure structure for procedure `create_item_comment` */
 
@@ -185,15 +308,38 @@ BEGIN
              `item_id`,
              `user_id`,
              `comment_message`,
-             `create_time`,
-             `like_count`)
+             `create_time`)
 VALUES (
         p_item_id,
         p_user_id,
         p_message,
-        NOW(),
-        0);
+        NOW());
         select * from error_code where `error_code`.`response_code`=200;
+    END */$$
+DELIMITER ;
+
+/* Procedure structure for procedure `create_news_comment` */
+
+/*!50003 DROP PROCEDURE IF EXISTS  `create_news_comment` */;
+
+DELIMITER $$
+
+/*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `create_news_comment`(
+		in p_news_id int(11),
+		in p_user_id int(11),
+		in p_comment_message text
+    )
+BEGIN
+	INSERT INTO `mine_craft_mods`.`news_comment`
+		    (`news_id`,
+		    `user_id`,
+		     `comment_message`,
+		     `create_time`)
+	VALUES (p_news_id,
+	p_user_id,
+		p_comment_message,
+		NOW());
+	SELECT * FROM error_code where error_code.`response_code` = 200;
     END */$$
 DELIMITER ;
 
@@ -290,6 +436,24 @@ SELECT * FROM item_type;
     END */$$
 DELIMITER ;
 
+/* Procedure structure for procedure `get_all_news_items` */
+
+/*!50003 DROP PROCEDURE IF EXISTS  `get_all_news_items` */;
+
+DELIMITER $$
+
+/*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `get_all_news_items`(
+			in p_limit_amount int(11)
+    )
+BEGIN
+	if(p_limit_amount > 0) then
+	select * from news order by news.`news_create_at` desc limit p_limit_amount;
+	else
+	SELECT * FROM news ORDER BY news.`news_create_at` DESC;
+	end if;
+    END */$$
+DELIMITER ;
+
 /* Procedure structure for procedure `get_error_code` */
 
 /*!50003 DROP PROCEDURE IF EXISTS  `get_error_code` */;
@@ -368,6 +532,25 @@ BEGIN
 	select * from item where item.`type_id` = p_item_type_id limit p_limit_amount;
 	else
 	select * from item where item.`type_id` = p_item_type_id;
+	end if;
+    END */$$
+DELIMITER ;
+
+/* Procedure structure for procedure `get_news_comment` */
+
+/*!50003 DROP PROCEDURE IF EXISTS  `get_news_comment` */;
+
+DELIMITER $$
+
+/*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `get_news_comment`(
+		IN p_news_id INT(11),
+		IN p_limit_amount INT(11)
+)
+BEGIN		
+	IF (p_limit_amount > 0) THEN 
+	SELECT `news_comment`.`comment_id`,`news_comment`.`news_id`,`news_comment`.`user_id`,`news_comment`.`comment_message`,TIMEDIFF(NOW(),`news_comment`.`create_time`) as duration FROM `news_comment` where `news_id`= p_news_id limit p_limit_amount;
+	ELSE 
+	SELECT `news_comment`.`comment_id`,`news_comment`.`news_id`,`news_comment`.`user_id`,`news_comment`.`comment_message`,TIMEDIFF(NOW(),`news_comment`.`create_time`) AS duration FROM `news_comment` WHERE `news_id`= p_news_id;
 	end if;
     END */$$
 DELIMITER ;
