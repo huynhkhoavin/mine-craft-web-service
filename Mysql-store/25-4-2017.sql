@@ -117,11 +117,11 @@ CREATE TABLE `item_comment` (
   `create_time` datetime NOT NULL,
   `like_count` int(11) NOT NULL,
   PRIMARY KEY (`comment_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=latin1;
 
 /*Data for the table `item_comment` */
 
-insert  into `item_comment`(`comment_id`,`item_id`,`user_id`,`comment_message`,`create_time`,`like_count`) values (2,'1','1','gasgsafasf','2017-04-19 13:43:37',100),(3,'1','1','Greate Job!','2017-04-21 09:28:29',34),(4,'1','1','hehela','2017-04-21 10:42:31',0),(5,'1','1','hehela','2017-04-21 10:59:35',0),(6,'1','1','aksdhasnd.asdkjasd','2017-04-21 10:59:56',0),(7,'1','1','aksdhasnd.asdkjasd','2017-04-21 11:05:17',0),(8,'1','1','aksdhasnd.asdkjasd','2017-04-21 13:06:11',0),(9,'1','1','aksdhasnd.asdkjasd','2017-04-21 13:06:13',0),(10,'1','1','sdfdsfdsfsdfds','2017-04-21 13:23:23',0),(11,'1','1','Hello','2017-04-21 13:25:36',0),(12,'1','1','´dasdas','2017-04-21 13:27:35',0),(13,'1','1','´dasd´dasd','2017-04-21 13:27:44',0),(14,'1','1','´dasdasdasdasdasd','2017-04-21 13:27:48',0),(15,'1','1','sdfdsfdsfdsfdsf','2017-04-21 13:28:56',0),(16,'1','1','22222','2017-04-21 15:09:57',0),(17,'1','1','22222','2017-04-21 15:32:17',0),(18,'8','1','hgfhghgf','2017-04-24 09:12:33',0),(19,'2','1','fghgfhgfh','2017-04-24 09:13:52',0),(20,'3','1','dsfdsfdsfds','2017-04-24 09:17:43',0),(21,'2','1','asdsadsad','2017-04-24 09:21:27',0),(22,'2','1','sadsadsa','2017-04-24 09:21:29',0),(23,'1','1','dfdsfdsfdsf','2017-04-25 15:07:32',0),(24,'10','1','hjkhjkjhkhj','2017-04-25 15:44:14',0);
+insert  into `item_comment`(`comment_id`,`item_id`,`user_id`,`comment_message`,`create_time`,`like_count`) values (2,'1','1','gasgsafasf','2017-04-19 13:43:37',100),(3,'1','1','Greate Job!','2017-04-21 09:28:29',34),(4,'1','1','hehela','2017-04-21 10:42:31',0),(5,'1','1','hehela','2017-04-21 10:59:35',0),(6,'1','1','aksdhasnd.asdkjasd','2017-04-21 10:59:56',0),(7,'1','1','aksdhasnd.asdkjasd','2017-04-21 11:05:17',0),(8,'1','1','aksdhasnd.asdkjasd','2017-04-21 13:06:11',0),(9,'1','1','aksdhasnd.asdkjasd','2017-04-21 13:06:13',0),(10,'1','1','sdfdsfdsfsdfds','2017-04-21 13:23:23',0),(11,'1','1','Hello','2017-04-21 13:25:36',0),(12,'1','1','´dasdas','2017-04-21 13:27:35',0),(13,'1','1','´dasd´dasd','2017-04-21 13:27:44',0),(14,'1','1','´dasdasdasdasdasd','2017-04-21 13:27:48',0),(15,'1','1','sdfdsfdsfdsfdsf','2017-04-21 13:28:56',0),(16,'1','1','22222','2017-04-21 15:09:57',0),(17,'1','1','22222','2017-04-21 15:32:17',0),(18,'8','1','hgfhghgf','2017-04-24 09:12:33',0),(19,'2','1','fghgfhgfh','2017-04-24 09:13:52',0),(20,'3','1','dsfdsfdsfds','2017-04-24 09:17:43',0),(21,'2','1','asdsadsad','2017-04-24 09:21:27',0),(22,'2','1','sadsadsa','2017-04-24 09:21:29',0),(23,'1','1','dfdsfdsfdsf','2017-04-25 15:07:32',0),(24,'10','1','hjkhjkjhkhj','2017-04-25 15:44:14',0),(25,'10','1','xcvxcvxcv','2017-04-25 16:06:19',0),(26,'10','1','cvbvcbcvb','2017-04-25 16:07:04',0);
 
 /*Table structure for table `item_type` */
 
@@ -181,11 +181,11 @@ CREATE TABLE `news_comment` (
   `create_time` datetime DEFAULT NULL,
   `like_count` int(11) DEFAULT NULL,
   PRIMARY KEY (`comment_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
 
 /*Data for the table `news_comment` */
 
-insert  into `news_comment`(`comment_id`,`news_id`,`user_id`,`comment_message`,`create_time`,`like_count`) values (1,0,1,'hahahassiss','2017-04-24 13:28:34',NULL),(2,0,1,'hahahassiss','2017-04-24 13:28:40',NULL),(3,1,1,'hahahassiss','2017-04-24 13:32:41',NULL),(4,1,1,'hahahassiss','2017-04-24 13:39:32',NULL),(5,1,1,'hahahassiss','2017-04-24 13:39:34',NULL),(6,1,1,'hahahassiss','2017-04-24 13:39:34',NULL),(7,1,1,'hahahassiss','2017-04-24 13:39:34',NULL),(8,1,1,'hahahassiss','2017-04-24 13:39:35',NULL),(9,3,1,'Hello','2017-04-24 13:48:08',NULL),(10,2,1,'ttdd','2017-04-25 10:05:51',NULL),(11,2,1,'ddd','2017-04-25 10:05:54',NULL),(12,2,1,'daa','2017-04-25 10:06:05',NULL);
+insert  into `news_comment`(`comment_id`,`news_id`,`user_id`,`comment_message`,`create_time`,`like_count`) values (1,0,1,'hahahassiss','2017-04-24 13:28:34',NULL),(2,0,1,'hahahassiss','2017-04-24 13:28:40',NULL),(3,1,1,'hahahassiss','2017-04-24 13:32:41',NULL),(4,1,1,'hahahassiss','2017-04-24 13:39:32',NULL),(5,1,1,'hahahassiss','2017-04-24 13:39:34',NULL),(6,1,1,'hahahassiss','2017-04-24 13:39:34',NULL),(7,1,1,'hahahassiss','2017-04-24 13:39:34',NULL),(8,1,1,'hahahassiss','2017-04-24 13:39:35',NULL),(9,3,1,'Hello','2017-04-24 13:48:08',NULL),(10,2,1,'ttdd','2017-04-25 10:05:51',NULL),(11,2,1,'ddd','2017-04-25 10:05:54',NULL),(12,2,1,'daa','2017-04-25 10:06:05',NULL),(13,1,1,'xcvxcvxcv','2017-04-25 15:50:06',NULL);
 
 /*Table structure for table `upload_item` */
 
@@ -210,11 +210,11 @@ CREATE TABLE `upload_item` (
   `is_verify` int(11) DEFAULT NULL,
   `create_time` datetime DEFAULT NULL,
   PRIMARY KEY (`item_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=latin1;
 
 /*Data for the table `upload_item` */
 
-insert  into `upload_item`(`item_id`,`type_id`,`category_id`,`item_name`,`file_url`,`image_url`,`thumb_url`,`author_name`,`version`,`size`,`description`,`short_description`,`hot_priority`,`download_count`,`video_code`,`is_verify`,`create_time`) values (22,1,1,'adsads','C:\\Users\\Dev02\\Downloads\\unlocker208.zip','C:\\Users\\Dev02\\Pictures\\Camera Roll\\img.PNG',NULL,'asdads','asdads','asdasd','asdasdadwd','asdasd',0,0,'asdads',0,'2017-04-25 13:23:41'),(23,1,1,'adsadsssssdwa','C:\\Users\\Dev02\\Downloads\\unlocker208.zip','C:\\Users\\Dev02\\Pictures\\Camera Roll\\img.PNG',NULL,'asdads','asdads','asdasd','asdasdadwd','asdasd',0,0,'asdads',0,'2017-04-25 13:24:01'),(24,1,1,'KhoaVin','C:\\Users\\Dev02\\Downloads\\OneKey_V14.5.8.215.rar','C:\\Users\\Dev02\\Pictures\\Camera Roll\\img.PNG',NULL,'asdads','asdads','asdasd','asdasdadwd','asdasd',0,0,'asdads',0,'2017-04-25 13:29:47'),(25,1,1,'khoavin2','C:\\Users\\Dev02\\Downloads\\OneKey_V14.5.8.215.rar','C:\\Users\\Dev02\\Pictures\\Camera Roll\\img.PNG',NULL,'asdads','asdads','asdasd','asdasdadwd','asdasd',0,0,'asdads',0,'2017-04-25 14:56:21'),(26,1,1,'khoavin3','C:\\Users\\Dev02\\Downloads\\IDM 6.23 Build 12 Full SinhVienIT.Net.rar','C:\\Users\\Dev02\\Pictures\\Camera Roll\\img.PNG',NULL,'asdads','asdads','asdasd','asdasdadwd','asdasd',0,0,'asdads',0,'2017-04-25 14:58:06'),(27,1,1,'khoavin4','C:\\Users\\Dev02\\Downloads\\IDM 6.23 Build 12 Full SinhVienIT.Net.rar','C:\\Users\\Dev02\\Pictures\\Camera Roll\\img.PNG',NULL,'asdads','asdads','asdasd','asdasdadwd','asdasd',0,0,'asdads',0,'2017-04-25 14:58:15'),(28,1,1,'khoavin5','C:\\Users\\Dev02\\Downloads\\android-auth-1.0 (1).zip','C:\\Users\\Dev02\\Pictures\\Camera Roll\\img.PNG',NULL,'asdads','asdads','asdasd','asdasdadwd','asdasd',0,0,'asdads',0,'2017-04-25 15:26:28'),(29,1,1,'khoavin6','C:\\Users\\Dev02\\Downloads\\Zip-master.zip','C:\\Users\\Dev02\\Pictures\\Camera Roll\\img.PNG',NULL,'asdads','asdads','asdasd','asdasdadwd','asdasd',0,0,'asdads',0,'2017-04-25 15:33:20'),(30,1,1,'khoavin7','C:\\Users\\Dev02\\Downloads\\Zip-master.zip','C:\\Users\\Dev02\\Desktop\\mini.jpg',NULL,'asdads','asdads','asdasd','asdasdadwd','asdasd',0,0,'asdads',0,'2017-04-25 15:41:26');
+insert  into `upload_item`(`item_id`,`type_id`,`category_id`,`item_name`,`file_url`,`image_url`,`thumb_url`,`author_name`,`version`,`size`,`description`,`short_description`,`hot_priority`,`download_count`,`video_code`,`is_verify`,`create_time`) values (32,1,1,'khoavin','mine-craft-database-master.addon','mini.jpg',NULL,'asdads','asdads','asdasd','asdasdadwd','asdasd',0,0,'asdads',0,'2017-04-25 17:22:56'),(33,1,1,'khoavin2','mine-craft-database-master.addon','mini.jpg',NULL,'asdads','asdads','asdasd','asdasdadwd','asdasd',0,0,'asdads',0,'2017-04-25 17:24:48');
 
 /* Procedure structure for procedure `add_new_upload_item` */
 
