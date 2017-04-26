@@ -32,4 +32,12 @@ class Detail extends CI_Controller{
             print(json_encode($result->result_array()));
             $this->db->close();
     }
+    public function download_item(){
+        $this->load->database();
+        $item_id = $this->input->post('item_id');
+        $query = "CALL download_item(?)";
+        $result = $this->db->query($query, array('p_item_id' => $item_id));
+            print(json_encode($result->result_array()));
+            $this->db->close();
+    }
 }
