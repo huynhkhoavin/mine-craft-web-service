@@ -58,7 +58,7 @@ CREATE TABLE `error_code` (
 
 /*Data for the table `error_code` */
 
-insert  into `error_code`(`response_code`,`meaning`) values ('200','Success!'),('201','Duplicate Insert Row'),('202','Unlike Success!'),('203','Like Success!'),('204','\r\nLogin success!'),('205','Login Failed!'),('206','Exist Item!'),('207','SQL Exception!'),('208','Item was verified!'),('209','Upload item was verified or not exist!'),('210','User has registerd!'),('211','Spin success'),('212','Need more time to spin next turn');
+insert  into `error_code`(`response_code`,`meaning`) values ('200','Success!'),('201','Duplicate Insert Row'),('202','Unlike Success!'),('203','Like Success!'),('204','\r\nLogin success!'),('205','Login Failed!'),('206','Exist Item!'),('207','SQL Exception!'),('208','Item was verified!'),('209','Upload item was verified or not exist!'),('210','User has registerd!'),('211','Spin success'),('212','Need more time to spin next turn'),('213','User_id doen\'t exist in reward list or already set information!');
 
 /*Table structure for table `event_constant` */
 
@@ -73,7 +73,7 @@ CREATE TABLE `event_constant` (
 
 /*Data for the table `event_constant` */
 
-insert  into `event_constant`(`constaint_id`,`constaint_meaning`,`constaint_value`) values (1,'Luky Number',2);
+insert  into `event_constant`(`constaint_id`,`constaint_meaning`,`constaint_value`) values (1,'Luky Number',5);
 
 /*Table structure for table `event_param` */
 
@@ -234,7 +234,24 @@ CREATE TABLE `resource` (
 
 /*Data for the table `resource` */
 
-insert  into `resource`(`resource_id`,`resource_meaning`,`resource_type`,`resource_value`) values (1,'15 USD',2,15),(2,'20 Coin',1,20),(3,'5 USD',2,5),(4,'10 Coin',1,10),(5,'5 USD',2,5),(6,'1 Coin',1,1),(7,'10 USD',2,10),(8,'3 Coin',1,3);
+insert  into `resource`(`resource_id`,`resource_meaning`,`resource_type`,`resource_value`) values (1,'15 USD',2,15),(2,'5 Coin',1,5),(3,'20 USD',2,20),(4,'10 Coin',1,10),(5,'5 USD',2,5),(6,'1 Coin',1,1),(7,'10 USD',2,10),(8,'3 Coin',1,3);
+
+/*Table structure for table `reward` */
+
+DROP TABLE IF EXISTS `reward`;
+
+CREATE TABLE `reward` (
+  `reward_id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` varchar(50) NOT NULL,
+  `resource_id` int(11) DEFAULT NULL,
+  `email` varchar(100) DEFAULT NULL,
+  `nation_name` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`reward_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+
+/*Data for the table `reward` */
+
+insert  into `reward`(`reward_id`,`user_id`,`resource_id`,`email`,`nation_name`) values (5,'93rGobFFrzVNk4Nku8fH2vz4hp42',5,'khoavin@gmail.com','VietNam'),(6,'qCve4oIdHBeZdWVHFYLfDjaVWeH2',1,'daffdsf@k','Anguilla');
 
 /*Table structure for table `spin_list` */
 
@@ -246,11 +263,11 @@ CREATE TABLE `spin_list` (
   `resource_id` int(11) NOT NULL,
   `spin_datetime` datetime NOT NULL,
   PRIMARY KEY (`spin_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=121 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=202 DEFAULT CHARSET=latin1;
 
 /*Data for the table `spin_list` */
 
-insert  into `spin_list`(`spin_id`,`user_id`,`resource_id`,`spin_datetime`) values (91,'93rGobFFrzVNk4Nku8fH2vz4hp42',6,'2017-04-28 11:15:52'),(92,'93rGobFFrzVNk4Nku8fH2vz4hp42',8,'2017-04-28 11:16:27'),(93,'93rGobFFrzVNk4Nku8fH2vz4hp42',8,'2017-04-28 11:16:36'),(94,'93rGobFFrzVNk4Nku8fH2vz4hp42',2,'2017-04-28 11:16:55'),(95,'93rGobFFrzVNk4Nku8fH2vz4hp42',3,'2017-04-28 11:17:05'),(96,'93rGobFFrzVNk4Nku8fH2vz4hp42',8,'2017-04-28 11:18:07'),(97,'93rGobFFrzVNk4Nku8fH2vz4hp42',6,'2017-04-28 11:18:17'),(98,'93rGobFFrzVNk4Nku8fH2vz4hp42',6,'2017-04-28 11:18:24'),(99,'93rGobFFrzVNk4Nku8fH2vz4hp42',4,'2017-04-28 11:18:31'),(100,'93rGobFFrzVNk4Nku8fH2vz4hp42',3,'2017-04-28 11:18:36'),(101,'93rGobFFrzVNk4Nku8fH2vz4hp42',8,'2017-04-28 11:19:09'),(102,'93rGobFFrzVNk4Nku8fH2vz4hp42',2,'2017-04-28 11:19:17'),(103,'93rGobFFrzVNk4Nku8fH2vz4hp42',4,'2017-04-28 11:19:23'),(104,'93rGobFFrzVNk4Nku8fH2vz4hp42',2,'2017-04-28 11:19:29'),(105,'93rGobFFrzVNk4Nku8fH2vz4hp42',7,'2017-04-28 11:19:36'),(106,'11',6,'2017-04-28 11:23:50'),(107,'11',4,'2017-04-28 11:24:12'),(108,'11',4,'2017-04-28 11:24:23'),(109,'11',6,'2017-04-28 11:24:30'),(110,'11',3,'2017-04-28 11:24:39'),(111,'93rGobFFrzVNk4Nku8fH2vz4hp42',4,'2017-04-28 11:26:08'),(112,'93rGobFFrzVNk4Nku8fH2vz4hp42',4,'2017-04-28 11:26:15'),(113,'93rGobFFrzVNk4Nku8fH2vz4hp42',4,'2017-04-28 11:26:21'),(114,'93rGobFFrzVNk4Nku8fH2vz4hp42',8,'2017-04-28 11:26:27'),(115,'93rGobFFrzVNk4Nku8fH2vz4hp42',5,'2017-04-28 11:26:33'),(116,'93rGobFFrzVNk4Nku8fH2vz4hp42',1,'2017-04-28 11:28:32'),(117,'93rGobFFrzVNk4Nku8fH2vz4hp42',8,'2017-04-28 11:28:42'),(118,'93rGobFFrzVNk4Nku8fH2vz4hp42',3,'2017-04-28 11:28:48'),(119,'93rGobFFrzVNk4Nku8fH2vz4hp42',8,'2017-04-28 11:28:54'),(120,'93rGobFFrzVNk4Nku8fH2vz4hp42',5,'2017-04-28 11:28:59');
+insert  into `spin_list`(`spin_id`,`user_id`,`resource_id`,`spin_datetime`) values (1,'qCve4oIdHBeZdWVHFYLfDjaVWeH2',6,'2017-04-27 13:42:05'),(177,'qCve4oIdHBeZdWVHFYLfDjaVWeH2',4,'2017-04-28 16:31:48'),(178,'qCve4oIdHBeZdWVHFYLfDjaVWeH2',6,'2017-04-28 16:32:23'),(179,'qCve4oIdHBeZdWVHFYLfDjaVWeH2',2,'2017-04-28 16:33:16'),(180,'qCve4oIdHBeZdWVHFYLfDjaVWeH2',7,'2017-04-28 16:33:39'),(181,'qCve4oIdHBeZdWVHFYLfDjaVWeH2',4,'2017-04-28 16:38:37'),(182,'qCve4oIdHBeZdWVHFYLfDjaVWeH2',8,'2017-04-28 16:43:40'),(183,'qCve4oIdHBeZdWVHFYLfDjaVWeH2',8,'2017-04-28 16:44:02'),(184,'qCve4oIdHBeZdWVHFYLfDjaVWeH2',2,'2017-04-28 16:44:26'),(185,'qCve4oIdHBeZdWVHFYLfDjaVWeH2',5,'2017-04-28 16:44:55'),(186,'qCve4oIdHBeZdWVHFYLfDjaVWeH2',2,'2017-04-28 16:50:21'),(187,'qCve4oIdHBeZdWVHFYLfDjaVWeH2',2,'2017-04-28 16:54:05'),(188,'qCve4oIdHBeZdWVHFYLfDjaVWeH2',6,'2017-04-28 17:03:39'),(189,'qCve4oIdHBeZdWVHFYLfDjaVWeH2',2,'2017-04-28 17:04:35'),(190,'qCve4oIdHBeZdWVHFYLfDjaVWeH2',1,'2017-04-28 17:08:59'),(191,'93rGobFFrzVNk4Nku8fH2vz4hp42',2,'2017-04-28 17:17:22'),(192,'93rGobFFrzVNk4Nku8fH2vz4hp42',8,'2017-04-28 17:17:26'),(193,'93rGobFFrzVNk4Nku8fH2vz4hp42',6,'2017-04-28 17:17:30'),(194,'93rGobFFrzVNk4Nku8fH2vz4hp42',8,'2017-04-28 17:17:34'),(195,'93rGobFFrzVNk4Nku8fH2vz4hp42',5,'2017-04-28 17:17:39'),(196,'qCve4oIdHBeZdWVHFYLfDjaVWeH2',4,'2017-04-28 17:20:01'),(197,'qCve4oIdHBeZdWVHFYLfDjaVWeH2',8,'2017-04-28 17:20:34'),(198,'qCve4oIdHBeZdWVHFYLfDjaVWeH2',4,'2017-04-28 17:21:10'),(199,'qCve4oIdHBeZdWVHFYLfDjaVWeH2',8,'2017-04-28 17:21:33'),(200,'qCve4oIdHBeZdWVHFYLfDjaVWeH2',1,'2017-04-28 17:21:58'),(201,'qCve4oIdHBeZdWVHFYLfDjaVWeH2',6,'2017-04-28 18:10:54');
 
 /*Table structure for table `upload_item` */
 
@@ -287,6 +304,7 @@ DROP TABLE IF EXISTS `user`;
 
 CREATE TABLE `user` (
   `user_id` varchar(50) NOT NULL,
+  `user_name` varchar(50) DEFAULT NULL,
   `user_coint` int(11) DEFAULT NULL,
   `last_spin_datetime` datetime DEFAULT NULL,
   PRIMARY KEY (`user_id`)
@@ -294,7 +312,7 @@ CREATE TABLE `user` (
 
 /*Data for the table `user` */
 
-insert  into `user`(`user_id`,`user_coint`,`last_spin_datetime`) values ('1',0,NULL),('10',0,'2017-04-01 11:08:03'),('11',22,'2017-04-28 11:24:39'),('11231231',0,NULL),('93rGobFFrzVNk4Nku8fH2vz4hp42',147,'2017-04-28 11:28:59');
+insert  into `user`(`user_id`,`user_name`,`user_coint`,`last_spin_datetime`) values ('qCve4oIdHBeZdWVHFYLfDjaVWeH2','Pamobile Dev04',1,'2017-04-28 18:10:54');
 
 /* Procedure structure for procedure `add_new_upload_item` */
 
@@ -478,94 +496,6 @@ BEGIN
     END */$$
 DELIMITER ;
 
-/* Procedure structure for procedure `do_spin` */
-
-/*!50003 DROP PROCEDURE IF EXISTS  `do_spin` */;
-
-DELIMITER $$
-
-/*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `do_spin`(
-		in p_user_id varchar(50)
-    )
-BEGIN
-		--	EXCEPTION CATCH
-	DECLARE CONTINUE HANDLER FOR SQLEXCEPTION
-	
-	SELECT * FROM error_code WHERE error_code.`response_code` = 207;
-	
-	-- check last spin date time
-	
-	-- variable to check spin is valid if @valid >= 1
-	select (DAY(NOW()) - DAY(user.`last_spin_datetime`)) from `user` where `user`.`user_id` = p_user_id into @valid_spin;
-	
-	-- variable to save lucky number from event constaint
-	select `event_constant`.`constaint_value` from `event_constant` where `event_constant`.`constaint_id` = 1 into @lucky_number;
-	
-	-- variable to save spin amount in spin list
-	select count(`spin_list`.`spin_id`) from `spin_list` into @spin_count;
-	
-	-- lucky sequence of this turn
-	select (@spin_count % @lucky_number) into @lucky_sequence;
-	
-	-- valid spin
-	if(@valid_spin >= 1) then
-			SELECT NOW() INTO @spin_time;
-			-- Get USD reward
-		if(@lucky_sequence = (@lucky_number-1)) then
-			-- get result by rand in (1,3,5,7)
-			SELECT ((FLOOR(RAND()*(3-0+1))+0)*2 + 1) into @result;
-			
-			SELECT `resource`.`resource_value` FROM `resource` WHERE `resource`.`resource_id` = @result INTO @resource_value;
-			SELECT `resource`.`resource_meaning` FROM `resource` WHERE  `resource`.`resource_id` = @result INTO @resource_meaning;
-			
-			INSERT INTO `mine_craft_mods`.`spin_list`
-				    (`user_id`,
-				     `resource_id`,
-				     `spin_datetime`)
-			VALUES (p_user_id,
-				@result,
-				@spin_time);
-			-- UPDATE NEW coin FOR USER
-			UPDATE `mine_craft_mods`.`user`
-			SET `last_spin_datetime` = @spin_time
-			WHERE `user_id` = p_user_id;
-			SELECT `error_code`.`response_code`,`error_code`.`meaning`,@result,@resource_meaning FROM `error_code` WHERE `error_code`.`response_code` = 211;
-			-- Get Coin reward
-		else
-			SELECT ((FLOOR(RAND()*(3-0+1))+0)*2 + 2) INTO @result;
-			
-			INSERT INTO `mine_craft_mods`.`spin_list`
-				    (`user_id`,
-				     `resource_id`,
-				     `spin_datetime`)
-		         VALUES (p_user_id,
-				@result,
-				@spin_time);
-				
-				-- get resource value
-				select `resource`.`resource_value` from `resource` where `resource`.`resource_id` = @result into @resource_value;
-				SELECT `resource`.`resource_meaning` from `resource` where  `resource`.`resource_id` = @result INTO @resource_meaning;
-				
-				-- get user current coin
-				select `user`.`user_coint` from `user` where `user`.`user_id` = p_user_id into @current_coin;
-				
-				-- Update new coin for user
-				UPDATE `mine_craft_mods`.`user`
-				SET `user_coint` = (@current_coin + @resource_value),
-				`last_spin_datetime` = @spin_time
-				WHERE `user_id` = p_user_id;
-				
-			SELECT `error_code`.`response_code`,`error_code`.`meaning`,@result,@resource_meaning FROM `error_code` WHERE `error_code`.`response_code` = 211;	
-			
-		end if;
-	
-	else
-		SELECT `error_code`.`response_code`,`error_code`.`meaning` FROM `error_code` WHERE `error_code`.`response_code` = 212;
-	
-	end if;
-    END */$$
-DELIMITER ;
-
 /* Procedure structure for procedure `get_admin_role` */
 
 /*!50003 DROP PROCEDURE IF EXISTS  `get_admin_role` */;
@@ -644,25 +574,6 @@ BEGIN
 	ELSE
 		SELECT * from item where item.`category_id` = p_category_id;
 	END IF;
-    END */$$
-DELIMITER ;
-
-/* Procedure structure for procedure `get_all_item_comment` */
-
-/*!50003 DROP PROCEDURE IF EXISTS  `get_all_item_comment` */;
-
-DELIMITER $$
-
-/*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `get_all_item_comment`(
-		IN p_item_id INT(40),
-		IN p_limit_amount INT(11)
-)
-BEGIN		
-	IF (p_limit_amount > 0) THEN 
-	SELECT `item_comment`.`comment_id`,`item_comment`.`item_id`,`item_comment`.`comment_message`,`item_comment`.`like_count`,TIMEDIFF(NOW(),`item_comment`.`create_time`) as duration FROM mine_craft_mods.`item_comment` where `item_id`= p_item_id order by item_comment.`create_time` desc limit p_limit_amount;
-	ELSE 
-	SELECT `item_comment`.`comment_id`,`item_comment`.`item_id`,`item_comment`.`comment_message`,`item_comment`.`like_count`,TIMEDIFF(NOW(),`item_comment`.`create_time`) AS duration  FROM mine_craft_mods.`item_comment` WHERE `item_id`= p_item_id ORDER BY item_comment.`create_time` DESC;
-	end if;
     END */$$
 DELIMITER ;
 
@@ -760,6 +671,130 @@ BEGIN
     END */$$
 DELIMITER ;
 
+/* Procedure structure for procedure `do_spin` */
+
+/*!50003 DROP PROCEDURE IF EXISTS  `do_spin` */;
+
+DELIMITER $$
+
+/*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `do_spin`(
+		in p_user_id varchar(50)
+    )
+BEGIN
+		--	EXCEPTION CATCH
+	DECLARE CONTINUE HANDLER FOR SQLEXCEPTION
+	
+	SELECT * FROM error_code WHERE error_code.`response_code` = 207;
+	
+	-- check last spin date time
+	
+	-- variable to check spin is valid if @valid >= 1
+	select (DAY(NOW()) - DAY(user.`last_spin_datetime`)) from `user` where `user`.`user_id` = p_user_id into @valid_spin;
+	
+	-- variable to save lucky number from event constaint
+	select `event_constant`.`constaint_value` from `event_constant` where `event_constant`.`constaint_id` = 1 into @lucky_number;
+	
+	-- variable to save spin amount in spin list
+	select count(`spin_list`.`spin_id`) from `spin_list` into @spin_count;
+	
+	-- lucky sequence of this turn
+	select (@spin_count % @lucky_number) into @lucky_sequence;
+	
+	-- valid spin
+	if(@valid_spin >= 1) then
+			SELECT NOW() INTO @spin_time;
+			-- Get USD reward
+		if(@lucky_sequence = (@lucky_number-1)) then
+			-- get result by rand in (1,3,5,7)
+			SELECT ((FLOOR(RAND()*(3-0+1))+0)*2 + 1) into @result;
+			
+			SELECT `resource`.`resource_value` FROM `resource` WHERE `resource`.`resource_id` = @result INTO @resource_value;
+			SELECT `resource`.`resource_meaning` FROM `resource` WHERE  `resource`.`resource_id` = @result INTO @resource_meaning;
+			
+			INSERT INTO `mine_craft_mods`.`spin_list`
+				    (`user_id`,
+				     `resource_id`,
+				     `spin_datetime`)
+			VALUES (p_user_id,
+				@result,
+				@spin_time);
+			-- UPDATE datetime for user
+			UPDATE `mine_craft_mods`.`user`
+			SET `last_spin_datetime` = @spin_time
+			WHERE `user_id` = p_user_id;
+			-- add user to reward board
+			
+			INSERT INTO `mine_craft_mods`.`reward`
+				    (
+				     `user_id`,
+				     `resource_id`,
+				     `email`,
+				     `nation_name`)
+			VALUES (
+				p_user_id,
+				@result,
+				'',
+				'');			
+			-- return response code
+			
+			SELECT `error_code`.`response_code`,`error_code`.`meaning`,@result as result,@resource_meaning as resource_meaning FROM `error_code` WHERE `error_code`.`response_code` = 211;
+			
+			
+			-- Get Coin reward
+		else
+			SELECT ((FLOOR(RAND()*(3-0+1))+0)*2 + 2) INTO @result;
+			
+			INSERT INTO `mine_craft_mods`.`spin_list`
+				    (`user_id`,
+				     `resource_id`,
+				     `spin_datetime`)
+		         VALUES (p_user_id,
+				@result,
+				@spin_time);
+				
+				-- get resource value
+				select `resource`.`resource_value` from `resource` where `resource`.`resource_id` = @result into @resource_value;
+				SELECT `resource`.`resource_meaning` from `resource` where  `resource`.`resource_id` = @result INTO @resource_meaning;
+				
+				-- get user current coin
+				select `user`.`user_coint` from `user` where `user`.`user_id` = p_user_id into @current_coin;
+				
+				-- Update new coin for user
+				UPDATE `mine_craft_mods`.`user`
+				SET `user_coint` = (@current_coin + @resource_value),
+				`last_spin_datetime` = @spin_time
+				WHERE `user_id` = p_user_id;
+				
+			SELECT `error_code`.`response_code`,`error_code`.`meaning`,@result as result,@resource_meaning as resource_meaning FROM `error_code` WHERE `error_code`.`response_code` = 211;	
+			
+		end if;
+	
+	else
+		SELECT `error_code`.`response_code`,`error_code`.`meaning` FROM `error_code` WHERE `error_code`.`response_code` = 212;
+	
+	end if;
+    END */$$
+DELIMITER ;
+
+/* Procedure structure for procedure `get_all_item_comment` */
+
+/*!50003 DROP PROCEDURE IF EXISTS  `get_all_item_comment` */;
+
+DELIMITER $$
+
+/*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `get_all_item_comment`(
+		IN p_item_id INT(40),
+		IN p_limit_amount INT(11)
+)
+BEGIN		
+	IF (p_limit_amount > 0) THEN 
+	SELECT `item_comment`.`comment_id`,`item_comment`.`item_id`,`item_comment`.`comment_message`,`item_comment`.`like_count`,TIMEDIFF(NOW(),`item_comment`.`create_time`) as duration FROM mine_craft_mods.`item_comment` where `item_id`= p_item_id order by item_comment.`create_time` desc limit p_limit_amount;
+	ELSE 
+	SELECT `item_comment`.`comment_id`,`item_comment`.`item_id`,`item_comment`.`comment_message`,`item_comment`.`like_count`,TIMEDIFF(NOW(),`item_comment`.`create_time`) AS duration  FROM mine_craft_mods.`item_comment` WHERE `item_id`= p_item_id ORDER BY item_comment.`create_time` DESC;
+	end if;
+    END */$$
+DELIMITER ;
+
 /* Procedure structure for procedure `get_html_content` */
 
 /*!50003 DROP PROCEDURE IF EXISTS  `get_html_content` */;
@@ -793,6 +828,37 @@ BEGIN
     END */$$
 DELIMITER ;
 
+/* Procedure structure for procedure `get_reward_list` */
+
+/*!50003 DROP PROCEDURE IF EXISTS  `get_reward_list` */;
+
+DELIMITER $$
+
+/*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `get_reward_list`()
+BEGIN
+	select user.`user_name`,`resource`.`resource_meaning`,`reward`.`nation_name` from reward, resource,`user` where `reward`.`resource_id` = `resource`.`resource_id` and reward.`user_id` = user.`user_id`;
+    END */$$
+DELIMITER ;
+
+/* Procedure structure for procedure `get_user_info` */
+
+/*!50003 DROP PROCEDURE IF EXISTS  `get_user_info` */;
+
+DELIMITER $$
+
+/*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `get_user_info`(
+		in p_user_id int(11)
+    )
+BEGIN
+	--	EXCEPTION CATCH
+	DECLARE CONTINUE HANDLER FOR SQLEXCEPTION
+	
+	SELECT * FROM error_code WHERE error_code.`response_code` = 207;
+	
+	select * from `user` where `user`.`user_id` = p_user_id;
+    END */$$
+DELIMITER ;
+
 /* Procedure structure for procedure `like_comment` */
 
 /*!50003 DROP PROCEDURE IF EXISTS  `like_comment` */;
@@ -816,33 +882,53 @@ BEGIN
     END */$$
 DELIMITER ;
 
-/* Procedure structure for procedure `login` */
+/* Procedure structure for procedure `reset_spin_datetime` */
 
-/*!50003 DROP PROCEDURE IF EXISTS  `login` */;
+/*!50003 DROP PROCEDURE IF EXISTS  `reset_spin_datetime` */;
 
 DELIMITER $$
 
-/*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `login`(
-		in p_user_id varchar(50)
+/*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `reset_spin_datetime`(
+		in p_user_id int(11)
     )
 BEGIN
-		--	EXCEPTION CATCH
+		UPDATE `mine_craft_mods`.`user`
+		SET
+		  `last_spin_datetime` = '2017-04-26 11:19:36'
+		WHERE 
+		  `user_id` = p_user_id;
+		  select * from error_code where error_code.`response_code` = 200;
+    END */$$
+DELIMITER ;
+
+/* Procedure structure for procedure `send_reward_info` */
+
+/*!50003 DROP PROCEDURE IF EXISTS  `send_reward_info` */;
+
+DELIMITER $$
+
+/*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `send_reward_info`(
+		in p_user_id varchar(50),
+		in p_email varchar(100),
+		in p_nation_name varchar(100)
+)
+BEGIN
+    		--	EXCEPTION CATCH
 	DECLARE CONTINUE HANDLER FOR SQLEXCEPTION
 	
 	SELECT * FROM error_code WHERE error_code.`response_code` = 207;
-	
-	select count(*) from `user` where `user`.`user_id` = p_user_id into @check_user;
-	if (@check_user = 0) then
-	INSERT INTO `mine_craft_mods`.`user`
-            (`user_id`,
-             `user_coint`,
-             `last_spin_datetime`)
-		VALUES (p_user_id,
-		0,
-		'2017-04-01 11:08:03');
+	--
+	select count(*) from `reward` where `reward`.`user_id` = p_user_id and reward.`email` like '' into @check_exist;
+	if(@check_exist = 1 ) THEN
+		UPDATE `mine_craft_mods`.`reward`
+		SET 
+		  
+		  `email` = p_email,
+		  `nation_name` = p_nation_name
+		WHERE `user_id` = p_user_id;
 		select * from error_code where error_code.`response_code` = 200;
-	else 
-		SELECT * FROM error_code WHERE error_code.`response_code` = 210;
+	ELSE
+		SELECT * FROM error_code WHERE error_code.`response_code` = 213;
 	end if;
     END */$$
 DELIMITER ;
@@ -862,6 +948,40 @@ BEGIN
 	SELECT `news_comment`.`comment_id`,`news_comment`.`news_id`,`news_comment`.`user_id`,`news_comment`.`comment_message`,TIMEDIFF(NOW(),`news_comment`.`create_time`) as duration FROM `news_comment` where `news_id`= p_news_id order by news_comment.`create_time` desc  limit p_limit_amount;
 	ELSE 
 	SELECT `news_comment`.`comment_id`,`news_comment`.`news_id`,`news_comment`.`user_id`,`news_comment`.`comment_message`,TIMEDIFF(NOW(),`news_comment`.`create_time`) AS duration FROM `news_comment` WHERE `news_id`= p_news_id ORDER BY news_comment.`create_time` DESC;
+	end if;
+    END */$$
+DELIMITER ;
+
+/* Procedure structure for procedure `login` */
+
+/*!50003 DROP PROCEDURE IF EXISTS  `login` */;
+
+DELIMITER $$
+
+/*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `login`(
+		in p_user_id varchar(50),
+		in p_user_name varchar(50)
+    )
+BEGIN
+		--	EXCEPTION CATCH
+	DECLARE CONTINUE HANDLER FOR SQLEXCEPTION
+	
+	SELECT * FROM error_code WHERE error_code.`response_code` = 207;
+	
+	select count(*) from `user` where `user`.`user_id` = p_user_id into @check_user;
+	if (@check_user = 0) then
+	INSERT INTO `mine_craft_mods`.`user`
+            (`user_id`,
+	     `user_name`,
+             `user_coint`,
+             `last_spin_datetime`)
+		VALUES (p_user_id,
+		p_user_name,
+		0,
+		'2017-04-01 11:08:03');
+		select * from error_code where error_code.`response_code` = 200;
+	else 
+		SELECT * FROM error_code WHERE error_code.`response_code` = 210;
 	end if;
     END */$$
 DELIMITER ;
@@ -988,7 +1108,6 @@ DELIMITER $$
 		in p_upload_item_id int(11)
     )
 BEGIN
---	EXCEPTION CATCH
 	DECLARE continue HANDLER FOR SQLEXCEPTION
 	
 	SELECT * FROM error_code WHERE error_code.`response_code` = 207;
