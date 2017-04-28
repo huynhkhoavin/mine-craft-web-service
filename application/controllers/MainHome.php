@@ -53,12 +53,6 @@ class MainHome extends CI_Controller{
             print(json_encode($result->result_array()));
             $this->db->close();
     }
-    public function demo(){
-        $this->load->database();
-        echo("ssss");
-        $result = $this->db->query("SELECT * FROM item");
-        $this->db->close();
-    }
     public function get_all_items_by_category(){
         $this->load->database();
         $category_id = $this->input->post('category_id');
