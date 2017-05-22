@@ -321,7 +321,7 @@ insert  into `user`(`user_id`,`user_name`,`user_coint`,`last_spin_datetime`) val
 
 DELIMITER $$
 
-/*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `add_new_upload_item`(
+/*!50003 CREATE PROCEDURE `add_new_upload_item`(
 	    in p_type_id int(11),
 		in p_category_id int(11),
 		in p_item_name VARCHAR(50),
@@ -390,7 +390,7 @@ DELIMITER ;
 
 DELIMITER $$
 
-/*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `admin_authentication`(
+/*!50003 CREATE  PROCEDURE `admin_authentication`(
 		IN p_username varchar(50),
 		in p_password varchar(50)
     )
@@ -411,7 +411,7 @@ DELIMITER ;
 
 DELIMITER $$
 
-/*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `check_next_spin_turn`()
+/*!50003 CREATE  PROCEDURE `check_next_spin_turn`()
 BEGIN
 	select timediff(ADDTIME(CURDATE() + INTERVAL 1 DAY,'00:00:00') ,now()) as Duration;
     END */$$
@@ -423,7 +423,7 @@ DELIMITER ;
 
 DELIMITER $$
 
-/*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `check_spin_state`(IN p_user_id VARCHAR(50)
+/*!50003 CREATE  PROCEDURE `check_spin_state`(IN p_user_id VARCHAR(50)
     )
 BEGIN
 		--	EXCEPTION CATCH
@@ -460,7 +460,7 @@ DELIMITER ;
 
 DELIMITER $$
 
-/*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `create_item_comment`(
+/*!50003 CREATE PROCEDURE `create_item_comment`(
 	in p_item_id int(11),
 	IN p_user_id VARCHAR(50),
 	in p_message TEXT
@@ -487,7 +487,7 @@ DELIMITER ;
 
 DELIMITER $$
 
-/*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `create_news_comment`(
+/*!50003 CREATE  PROCEDURE `create_news_comment`(
 		in p_news_id int(11),
 		in p_user_id int(11),
 		in p_comment_message text
@@ -512,7 +512,7 @@ DELIMITER ;
 
 DELIMITER $$
 
-/*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `delete_upload_item`(
+/*!50003 CREATE  PROCEDURE `delete_upload_item`(
 			in p_item_id int(11)
     )
 BEGIN
@@ -534,7 +534,7 @@ DELIMITER ;
 
 DELIMITER $$
 
-/*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `download_item`(
+/*!50003 CREATE PROCEDURE `download_item`(
 	in p_item_id int(11)
     )
 BEGIN
@@ -554,7 +554,7 @@ DELIMITER ;
 
 DELIMITER $$
 
-/*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `get_admin_role`(
+/*!50003 CREATE PROCEDURE `get_admin_role`(
 		in p_user_name VARCHAR(50)
     )
 BEGIN
@@ -573,7 +573,7 @@ DELIMITER ;
 
 DELIMITER $$
 
-/*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `get_all_categories`()
+/*!50003 CREATE PROCEDURE `get_all_categories`()
 BEGIN
 SELECT * FROM category;
     END */$$
@@ -585,7 +585,7 @@ DELIMITER ;
 
 DELIMITER $$
 
-/*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `get_all_item`(
+/*!50003 CREATE PROCEDURE `get_all_item`(
 		IN p_amount INT(11)
 )
 BEGIN		
@@ -603,7 +603,7 @@ DELIMITER ;
 
 DELIMITER $$
 
-/*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `get_all_items`(
+/*!50003 CREATE PROCEDURE `get_all_items`(
 )
 BEGIN		
 	SELECT * FROM item;
@@ -616,7 +616,7 @@ DELIMITER ;
 
 DELIMITER $$
 
-/*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `get_all_items_by_category`(
+/*!50003 CREATE PROCEDURE `get_all_items_by_category`(
 		IN p_category_id INT(11),
 		IN p_limit_amount int(11)
     )
@@ -635,7 +635,7 @@ DELIMITER ;
 
 DELIMITER $$
 
-/*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `do_spin`(
+/*!50003 CREATE PROCEDURE `do_spin`(
 		in p_user_id varchar(50)
     )
 BEGIN
@@ -740,7 +740,7 @@ DELIMITER ;
 
 DELIMITER $$
 
-/*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `get_all_item_comment`(
+/*!50003 CREATE PROCEDURE `get_all_item_comment`(
 		IN p_item_id INT(40),
 		IN p_limit_amount INT(11)
 )
@@ -759,7 +759,7 @@ DELIMITER ;
 
 DELIMITER $$
 
-/*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `get_all_item_type`()
+/*!50003 CREATE PROCEDURE `get_all_item_type`()
 BEGIN
 SELECT * FROM item_type;
     END */$$
@@ -771,7 +771,7 @@ DELIMITER ;
 
 DELIMITER $$
 
-/*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `get_all_news_items`(
+/*!50003 CREATE PROCEDURE `get_all_news_items`(
 			in p_limit_amount int(11)
     )
 BEGIN
@@ -789,7 +789,7 @@ DELIMITER ;
 
 DELIMITER $$
 
-/*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `get_all_upload_item`(
+/*!50003 CREATE PROCEDURE `get_all_upload_item`(
 		in p_start_datetime datetime,
 		in p_end_datetime datetime
 )
@@ -804,7 +804,7 @@ DELIMITER ;
 
 DELIMITER $$
 
-/*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `get_error_code`()
+/*!50003 CREATE PROCEDURE `get_error_code`()
 BEGIN
 	SELECT * FROM error_code;
     END */$$
@@ -816,7 +816,7 @@ DELIMITER ;
 
 DELIMITER $$
 
-/*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `get_home_newest_news`(
+/*!50003 CREATE PROCEDURE `get_home_newest_news`(
 		IN p_amount INT(11)
 	    )
 BEGIN		
@@ -834,7 +834,7 @@ DELIMITER ;
 
 DELIMITER $$
 
-/*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `get_hot_items`(
+/*!50003 CREATE PROCEDURE `get_hot_items`(
 		IN p_item_type INT(11),
 		IN p_limit_count INT(11)
 	    )
@@ -853,7 +853,7 @@ DELIMITER ;
 
 DELIMITER $$
 
-/*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `get_html_content`(
+/*!50003 CREATE PROCEDURE `get_html_content`(
 		IN p_html_content_id int(11)
     )
 BEGIN
@@ -867,7 +867,7 @@ DELIMITER ;
 
 DELIMITER $$
 
-/*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `get_item_by_type`(
+/*!50003 CREATE PROCEDURE `get_item_by_type`(
     in p_item_type_id int(11),
     in p_limit_amount INT(11)
     )
@@ -886,7 +886,7 @@ DELIMITER ;
 
 DELIMITER $$
 
-/*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `get_news_comment`(
+/*!50003 CREATE PROCEDURE `get_news_comment`(
 		IN p_news_id INT(11),
 		IN p_limit_amount INT(11)
 )
@@ -905,7 +905,7 @@ DELIMITER ;
 
 DELIMITER $$
 
-/*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `get_reward_list`()
+/*!50003 CREATE PROCEDURE `get_reward_list`()
 BEGIN
 	select user.`user_name`,`resource`.`resource_meaning`,`reward`.`nation_name` from reward, resource,`user` where `reward`.`resource_id` = `resource`.`resource_id` and reward.`user_id` = user.`user_id`;
     END */$$
@@ -917,7 +917,7 @@ DELIMITER ;
 
 DELIMITER $$
 
-/*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `get_user_info`(
+/*!50003 CREATE PROCEDURE `get_user_info`(
 		in p_user_id varchar(50)
     )
 BEGIN
@@ -936,7 +936,7 @@ DELIMITER ;
 
 DELIMITER $$
 
-/*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `like_comment`(
+/*!50003 CREATE PROCEDURE `like_comment`(
 	in p_user_id VARCHAR(50),
 	in p_comment_id int(11)
 )
@@ -959,7 +959,7 @@ DELIMITER ;
 
 DELIMITER $$
 
-/*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `login`(
+/*!50003 CREATE PROCEDURE `login`(
 		in p_user_id varchar(50),
 		in p_user_name varchar(50)
     )
@@ -993,7 +993,7 @@ DELIMITER ;
 
 DELIMITER $$
 
-/*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `reset_spin_datetime`(
+/*!50003 CREATE PROCEDURE `reset_spin_datetime`(
 		in p_user_id int(11)
     )
 BEGIN
@@ -1012,7 +1012,7 @@ DELIMITER ;
 
 DELIMITER $$
 
-/*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `search_items`(
+/*!50003 CREATE PROCEDURE `search_items`(
 		IN p_search_keyword VARCHAR(50),
 		IN p_limit_count INT(11)
 )
@@ -1041,7 +1041,7 @@ DELIMITER ;
 
 DELIMITER $$
 
-/*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `search_related_items`(
+/*!50003 CREATE PROCEDURE `search_related_items`(
 		IN p_item_id INT(11),
 		IN p_search_keyword VARCHAR(50),
 		IN p_limit_count INT(11)
@@ -1073,7 +1073,7 @@ DELIMITER ;
 
 DELIMITER $$
 
-/*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `send_reward_info`(
+/*!50003 CREATE PROCEDURE `send_reward_info`(
 		in p_user_id varchar(50),
 		in p_email varchar(100),
 		in p_nation_name varchar(100)
@@ -1105,7 +1105,7 @@ DELIMITER ;
 
 DELIMITER $$
 
-/*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `update_upload_item`(
+/*!50003 CREATE PROCEDURE `update_upload_item`(
 		in p_item_id int(11),
 		IN p_type_id INT(11),
 		IN p_category_id INT(11),
@@ -1156,7 +1156,7 @@ DELIMITER ;
 
 DELIMITER $$
 
-/*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `verify_upload_item`(
+/*!50003 CREATE PROCEDURE `verify_upload_item`(
 		in p_upload_item_id int(11)
     )
 BEGIN

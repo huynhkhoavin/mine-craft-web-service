@@ -75,9 +75,9 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => 'pamobile',
+	'hostname' => '198.1.92.155',
+	'username' => 'mcpecent_dev02',
+	'password' => 'dev02@pamobile',
 	'database' => 'mine_craft_mods',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',

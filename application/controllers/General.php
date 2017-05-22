@@ -5,9 +5,10 @@ class General extends CI_Controller{
         parent::__construct();
     }
     public function get_all_item(){
+        $limit_amount = $this->input->post('limit_amount');
           $this->load->database();
-            $query = "CALL get_all_items()";
-            $result = $this->db->query($query);
+            $query = "CALL get_all_item(?)";
+            $result = $this->db->query($query,array('p_amount' => $limit_amount));
             print(json_encode($result->result_array()));
             $this->db->close();
     }

@@ -51,7 +51,15 @@ class Spin extends CI_Controller {
         }
         public function check_next_spin_turn(){
             $this->load->database();    
-            $query = "CALL check_next_spin_turn()";
+            $user_id = $this->input->post('user_id');
+            $query = "CALL check_next_spin_turn(?)";
+            $result = $this->db->query($query, array('p_user_id'=>$user_id));
+            print(json_encode($result->result_array()));
+            $this->db->close();
+        }
+        public function get_spin_duration(){
+            $this->load->database();    
+            $query = "CALL get_spin_duration()";
             $result = $this->db->query($query);
             print(json_encode($result->result_array()));
             $this->db->close();

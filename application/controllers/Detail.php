@@ -40,4 +40,31 @@ class Detail extends CI_Controller{
             print(json_encode($result->result_array()));
             $this->db->close();
     }
+    public function get_related_items(){
+        $this->load->database();
+        $item_id = $this->input->post('item_id');
+        $limit_amount = $this->input->post('limit_amount');
+        $query = "CALL get_related_item(?,?)";
+        $result = $this->db->query($query, array('p_item_id' => $item_id,'p_limit_amount'=>$limit_amount));
+            print(json_encode($result->result_array()));
+            $this->db->close();
+    }
+    public function buy_item(){
+        $this->load->database();
+        $item_id = $this->input->post('item_id');
+        $user_id = $this->input->post('user_id');
+        $query = "CALL buy_item(?,?)";
+        $result = $this->db->query($query, array('p_user_id'=>$user_id,'p_item_id' => $item_id));
+            print(json_encode($result->result_array()));
+            $this->db->close();
+    }
+    public function get_unlocked_items(){
+                $this->load->database();
+        $user_id = $this->input->post('user_id');
+        $limit_amount = $this->input->post('limit_amount');
+        $query = "CALL get_unlocked_items(?,?)";
+        $result = $this->db->query($query, array('p_user_id'=>$user_id,'p_limit_amount' => $limit_amount));
+            print(json_encode($result->result_array()));
+            $this->db->close();
+    }
 }

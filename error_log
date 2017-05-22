@@ -1,0 +1,3 @@
+[05-May-2017 06:08:45 CST6CDT] PHP Fatal error:  Call to a member function fetch_assoc() on a non-object in /home/mcpecenter/public_html/mine-craft-sv/system/database/drivers/mysqli/mysqli_result.php on line 168
+[05-May-2017 06:10:25 CST6CDT] PHP Fatal error:  Call to a member function fetch_assoc() on a non-object in /home/mcpecenter/public_html/mine-craft-sv/system/database/drivers/mysqli/mysqli_result.php on line 168
+[05-May-2017 06:11:19 CST6CDT] PHP Fatal error:  Call to a member function fetch_assoc() on a non-object in /home/mcpecenter/public_html/mine-craft-sv/system/database/drivers/mysqli/mysqli_result.php on line 168
