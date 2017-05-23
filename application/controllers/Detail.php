@@ -40,7 +40,7 @@ class Detail extends CI_Controller{
             print(json_encode($result->result_array()));
             $this->db->close();
     }
-    public function get_related_items(){
+        public function get_related_items(){
         $this->load->database();
         $item_id = $this->input->post('item_id');
         $limit_amount = $this->input->post('limit_amount');
@@ -49,7 +49,7 @@ class Detail extends CI_Controller{
             print(json_encode($result->result_array()));
             $this->db->close();
     }
-    public function buy_item(){
+        public function buy_item(){
         $this->load->database();
         $item_id = $this->input->post('item_id');
         $user_id = $this->input->post('user_id');
@@ -58,7 +58,7 @@ class Detail extends CI_Controller{
             print(json_encode($result->result_array()));
             $this->db->close();
     }
-    public function get_unlocked_items(){
+        public function get_unlocked_items(){
                 $this->load->database();
         $user_id = $this->input->post('user_id');
         $limit_amount = $this->input->post('limit_amount');

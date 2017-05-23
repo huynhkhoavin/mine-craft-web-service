@@ -43,4 +43,29 @@ class General extends CI_Controller{
         print(json_encode($result->result_array()));
         $this->db->close();
     }
+    public function get_coin(){
+        $this->load->database();
+        $user_id = $this->input->post('user_id');
+        $query = "CALL get_coin(?)";
+        $result = $this->db->query($query, array('p_user_id' => $user_id));
+        print(json_encode($result->result_array()));
+        $this->db->close();
+    }
+    public function buy_coin_package(){
+        $this->load->database();
+        $user_id = $this->input->post('user_id');
+        $coin_package_id = $this->input->post('cp_id');
+        $order_id = $this->input->post('order_id');
+        $query = "CALL buy_coin_package(?,?,?)";
+        $result = $this->db->query($query, array('p_user_id' => $user_id,'p_coin_package_id'=>$coin_package_id,'p_order_id'=>$order_id));
+        print(json_encode($result->result_array()));
+        $this->db->close();
+    }
+    public function get_all_coin_package(){
+        $this->load->database();    
+            $query = "CALL get_all_coin_package()";
+            $result = $this->db->query($query);
+            print(json_encode($result->result_array()));
+            $this->db->close();
+    }
 }
